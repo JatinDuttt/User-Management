@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body><center>
+    <h1>user management system</h1>
+  </center> <center>
+        <input type="text" name=""  placeholder="search user " id="search" autocomplete="off"><br>
+        <input type="text" name=""  id="name"><br>
+        <input type="text" name=""  id="email"><br>
+        <input type="text" name=""  id="mobile"><br>
+        <input type="text" name=""  id="pass"><br>
+        <button onclick="adduser()">add user</button>
+       
+        <button onclick=searchUser() disabled id="btnsearch">search user</button>
+        <button onclick=updateUser()>update User</button>
+        <button>Delete User</button>
+    </center><br>
+    <center>
+  <table cellspacing="10" cellpadding="10"
+  border="2">
+    <thead><tr>
+<th>sno</th>
+<th>name</th>
+<th>email</th>
+<th>mobile</th>
+<th>pass</th>
+<th>action</th>
+ </tr>
+</thead>
+<tbody id="tbody"></tbody>
+  </table>
+
+
+
+
+    </center>
+</body>
+<script src="index.js"></script>
+
+
+</html>
