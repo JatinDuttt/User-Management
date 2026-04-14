@@ -1,0 +1,482 @@
+:root {
+    --panel: rgba(255, 252, 245, 0.82);
+    --panel-strong: #fffaf2;
+    --line: rgba(33, 46, 41, 0.12);
+    --text: #18211e;
+    --muted: #5b675f;
+    --accent: #0f8b8d;
+    --accent-strong: #0b5d61;
+    --accent-soft: rgba(15, 139, 141, 0.12);
+    --sun: #f3a712;
+    --danger: #c44536;
+    --shadow: 0 20px 60px rgba(24, 33, 30, 0.12);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(15, 139, 141, 0.24), transparent 32%),
+        radial-gradient(circle at top right, rgba(243, 167, 18, 0.22), transparent 28%),
+        linear-gradient(160deg, #f8f4ea 0%, #eef5f2 55%, #f7efe5 100%);
+    color: var(--text);
+    font-family: "IBM Plex Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.page-aura {
+    position: fixed;
+    width: 26rem;
+    height: 26rem;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.page-aura-left {
+    top: -8rem;
+    left: -6rem;
+    background: rgba(15, 139, 141, 0.18);
+}
+
+.page-aura-right {
+    right: -8rem;
+    bottom: 6rem;
+    background: rgba(243, 167, 18, 0.18);
+}
+
+.app-shell {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero,
+.panel {
+    background: var(--panel);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: var(--shadow);
+}
+
+.hero {
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.eyebrow,
+.panel-kicker {
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-strong);
+}
+
+h1,
+h2,
+h3,
+.stat-number {
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 0.95;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.35rem;
+}
+
+h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1rem;
+}
+
+.hero-copy {
+    max-width: 42rem;
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.hero-actions {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.9rem;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(15, 139, 141, 0.12);
+    font-size: 0.92rem;
+    color: var(--accent-strong);
+}
+
+.workspace-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.panel {
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+}
+
+.panel-heading,
+.table-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.user-form,
+.controls-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.inline-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+label {
+    display: grid;
+    gap: 0.45rem;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: rgba(15, 139, 141, 0.65);
+    box-shadow: 0 0 0 4px rgba(15, 139, 141, 0.12);
+    transform: translateY(-1px);
+}
+
+.button-row,
+.actions-cell {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.9rem 1.15rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.primary-button {
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: white;
+    box-shadow: 0 16px 30px rgba(15, 139, 141, 0.2);
+}
+
+.secondary-button,
+.ghost-button,
+.text-button,
+.action-button {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text);
+    border: 1px solid var(--line);
+}
+
+.ghost-button {
+    white-space: nowrap;
+}
+
+.text-button {
+    padding-inline: 0.9rem;
+}
+
+.wide-button {
+    align-self: end;
+}
+
+.form-message {
+    min-height: 1.4rem;
+    margin: 1rem 0 0;
+    color: var(--accent-strong);
+    font-weight: 600;
+}
+
+.form-message.is-error {
+    color: var(--danger);
+}
+
+.controls-panel,
+.table-panel {
+    margin-bottom: 1.5rem;
+}
+
+.controls-grid {
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: end;
+}
+
+.table-count {
+    margin: 0;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 780px;
+}
+
+thead th {
+    text-align: left;
+    color: var(--muted);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.9rem;
+}
+
+tbody td {
+    padding: 1rem 0;
+    border-top: 1px solid var(--line);
+    vertical-align: middle;
+}
+
+.table-name {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.table-name span {
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.password-mask {
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--muted);
+}
+
+.action-button.delete {
+    color: var(--danger);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--muted);
+}
+
+.dashboard-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.stat-card,
+.activity-card,
+.role-card {
+    border-radius: var(--radius-lg);
+    background: var(--panel-strong);
+    border: 1px solid rgba(24, 33, 30, 0.08);
+    padding: 1rem;
+}
+
+.stat-label {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.stat-number {
+    margin: 0.35rem 0 0;
+    font-size: 2rem;
+}
+
+.stat-helper {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.activity-list,
+.role-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.activity-list li,
+.role-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+}
+
+.activity-list span,
+.role-row span:last-child {
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+.role-label {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.role-bar {
+    position: relative;
+    flex: 1;
+    height: 0.55rem;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(24, 33, 30, 0.08);
+}
+
+.role-bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--sun), var(--accent));
+}
+
+@media (max-width: 920px) {
+    .workspace-grid,
+    .controls-grid,
+    .inline-fields,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .panel-heading,
+    .table-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-actions {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .wide-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-shell {
+        width: min(100% - 1rem, 100%);
+        padding-top: 1rem;
+    }
+
+    .hero,
+    .panel {
+        border-radius: 22px;
+        padding: 1.2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    button,
+    input,
+    select {
+        width: 100%;
+    }
+
+    .button-row,
+    .actions-cell {
+        flex-direction: column;
+    }
+}
